@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "60c34cdb-4d53-4c8d-9a61-2dc7cd205e74",
+		"name": "Bootcamp Online",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Siswa-Api",
+			"item": [
+				{
+					"name": "Get Siswa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Siswa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/siswa/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"siswa",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Siswa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"2\",\n    \"nis\":\"123457\",\n    \"nama\":\"Hani AR\",\n    \"jk\":\"P\",\n    \"tptLahir\":\"Lampung Tengah\",\n    \"tglLahir\":\"2001-11-05\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/siswa",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"siswa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Siswa",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"1\",\n    \"nis\":\"123466\",\n    \"nama\":\"Ahmad Roni Purwanto\",\n    \"jk\":\"L\",\n    \"tptLahir\":\"Kecubung Raya\",\n    \"tglLahir\":\"1997-12-22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/siswa",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"siswa"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "api-demo",
+			"item": [
+				{
+					"name": "Get Home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Person",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/person",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/person/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":2,\n    \"name\":\"Ahmad\",\n    \"gender\":\"Pria\",\n    \"address\":\"Jakarta\",\n    \"hoby\":\"Layangan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/person",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"person"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
