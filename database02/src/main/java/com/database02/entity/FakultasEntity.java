@@ -3,9 +3,11 @@ package com.database02.entity;
 import com.database02.model.FakultasModel;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -38,15 +40,19 @@ public class FakultasEntity {
     @Column(name = "updated_by", length = 20)
     private String updatedBy;
 
+    @OneToMany(mappedBy = "fakultas", fetch = FetchType.EAGER)
+    private Set<JurusanEntity> jurusans;
+
     //constructor
     public FakultasEntity(){
 
     }
+    public FakultasEntity(String id){
+        this.id = id;
+    }
     public FakultasEntity(FakultasModel data){
+        BeanUtils.copyProperties(data, this);
         this.id = UUID.randomUUID().toString();
-        this.code = data.getCode();
-        this.name = data.getName();
-        this.alamat = data.getAlamat();
         this.createdAt = LocalDateTime.now();
         this.createdBy = "SYSTEM";
         this.updatedAt = LocalDateTime.now();

@@ -1,9 +1,14 @@
 package com.database02.model;
 
 import com.database02.entity.MahasiswaEntity;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
 public class MahasiswaModel {
     private String id;
     private String name;
@@ -13,85 +18,19 @@ public class MahasiswaModel {
     private LocalDate tglLahir;
     private String agama;
     private String jurusanId;
+    private JurusanModel jurusan;
 
 
     //constructor
     public MahasiswaModel() {
     }
     public MahasiswaModel(MahasiswaEntity data){
-        this.id = data.getId();
-        this.name = data.getName();
-        this.jk = data.getJk();
-        this.alamat = data.getAlamat();
-        this.tmptLahir = data.getTmpLahir();
-        this.tglLahir = data.getTglLahir();
-        this.agama = data.getAgama();
-        this.jurusanId = data.getJurusanId();
+        BeanUtils.copyProperties(data, this);
+        //buat validasi
+        if (data.getJurusan() != null){
+            jurusanId = data.getJurusanId();
+            jurusan = new JurusanModel(data.getJurusan());
+        }
     }
 
-    //method
-
-    public String getTmptLahir() {
-        return tmptLahir;
-    }
-
-    public void setTmptLahir(String tmptLahir) {
-        this.tmptLahir = tmptLahir;
-    }
-
-    public LocalDate getTglLahir() {
-        return tglLahir;
-    }
-
-    public void setTglLahir(LocalDate tglLahir) {
-        this.tglLahir = tglLahir;
-    }
-
-    public String getAgama() {
-        return agama;
-    }
-
-    public void setAgama(String agama) {
-        this.agama = agama;
-    }
-
-    public String getJurusanId() {
-        return jurusanId;
-    }
-
-    public void setJurusanId(String jurusanId) {
-        this.jurusanId = jurusanId;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getJk() {
-        return jk;
-    }
-
-    public void setJk(String jk) {
-        this.jk = jk;
-    }
-
-    public String getAlamat() {
-        return alamat;
-    }
-
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
-    }
 }

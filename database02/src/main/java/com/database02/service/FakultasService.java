@@ -3,11 +3,12 @@ package com.database02.service;
 import com.database02.model.FakultasModel;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface FakultasService {
     public List<FakultasModel> getAll();
     public FakultasModel getById(String id);
-    public FakultasModel save(FakultasModel data);
-    public FakultasModel update(String id, FakultasModel data);
-    public FakultasModel delete(String id);
+    public Optional<FakultasModel> save(FakultasModel data);
+    public Optional<FakultasModel> update(String id, FakultasModel data);
+    public Optional<FakultasModel> delete(String id);
 }

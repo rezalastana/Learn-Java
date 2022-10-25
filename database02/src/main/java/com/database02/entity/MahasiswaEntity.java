@@ -3,6 +3,7 @@ package com.database02.entity;
 import com.database02.model.MahasiswaModel;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -60,18 +61,16 @@ public class MahasiswaEntity {
     }
 
     public MahasiswaEntity(MahasiswaModel data) {
+        BeanUtils.copyProperties(data, this);
         this.id = UUID.randomUUID().toString();
-        this.name = data.getName();
-        this.jk = data.getJk();
-        this.alamat = data.getAlamat();
-        this.tmpLahir = data.getTmptLahir();
-        this.tglLahir = data.getTglLahir();
-        this.agama = data.getAgama();
-        this.jurusanId = data.getJurusanId();
         this.createdAt = LocalDateTime.now();
         this.createdBy = "SYSTEM";
         this.updatedAt = LocalDateTime.now();
         this.updatedBy = "SYSTEM";
+        //buat validasi
+        if (data.getJurusan() != null){
+            this.jurusan = new JurusanEntity(data.getJurusan().getId());
+        }
     }
 
 }

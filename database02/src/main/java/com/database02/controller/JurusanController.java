@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/jurusan")
@@ -31,19 +32,19 @@ public class JurusanController {
 
     @PostMapping("")
     public ResponseEntity<Object> save(@RequestBody JurusanModel request){
-        JurusanModel result = service.save(request);
+        Optional<JurusanModel> result = service.save(request);
         return ResponseEntity.ok().body(result);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable("id") String id, @RequestBody JurusanModel request){
-        JurusanModel result = service.update(id, request);
+        Optional<JurusanModel> result = service.update(id, request);
         return ResponseEntity.ok().body(result);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable("id") String id){
-        JurusanModel result = service.delete(id);
+        Optional<JurusanModel> result = service.delete(id);
         return ResponseEntity.ok().body(result);
     }
 }

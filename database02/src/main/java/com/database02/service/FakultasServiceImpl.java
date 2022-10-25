@@ -1,10 +1,9 @@
 package com.database02.service;
 
 import com.database02.entity.FakultasEntity;
-import com.database02.entity.MahasiswaEntity;
 import com.database02.model.FakultasModel;
-import com.database02.model.MahasiswaModel;
 import com.database02.repository.FakultasRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,89 +23,49 @@ public class FakultasServiceImpl implements FakultasService{
 
     @Override
     public List<FakultasModel> getAll() {
-        List<FakultasEntity> result = this.repository.findAll();
-        if(result.isEmpty()){
-            Collections.emptyList();
-        }
-        // conver dari List<SiswaEntity> => List<SiswaModel>
-        return result.stream().map(FakultasModel::new).collect(Collectors.toList());
+        return this.repository.findAll().stream().map(FakultasModel::new).collect(Collectors.toList());
     }
 
     @Override
     public FakultasModel getById(String id) {
-        // check id
-        if(id == null || id.isBlank() || id.isEmpty()) {
-            return new FakultasModel();
-        }
-        Optional<FakultasEntity> result = repository.findById(id);
-        // convert dari SiswaEntity => SiswaModel
-        return result.map(FakultasModel::new).orElseGet(FakultasModel::new);
+        return this.repository.findById(id).map(FakultasModel::new).orElse(new FakultasModel());
     }
 
     @Override
-    public FakultasModel save(FakultasModel data) {
+    public Optional<FakultasModel> save(FakultasModel data) {
         if(data == null) {
-            return new FakultasModel();
+            return Optional.empty();
         }
         FakultasEntity result= new FakultasEntity(data);
         try{
             // proses simpan data => table siswa
             this.repository.save(result);
-            return new FakultasModel(result);
+            return Optional.of(new FakultasModel(result));
         }catch (Exception e){
-            return new FakultasModel();
+            return Optional.empty();
         }
     }
 
     @Override
-    public FakultasModel update(String id, FakultasModel data) {
-        // check id
-        if(id == null || id.isBlank() || id.isEmpty()) {
-            return new FakultasModel();
+    public Optional<FakultasModel> update(String id, FakultasModel data) {
+        Optional<FakultasEntity> result = this.repository.findById(id);
+        if (result.isEmpty()){
+            return Optional.empty();
         }
 
-        // ambil data dari table
-        Optional<FakultasEntity> result = repository.findById(id);
-        // check data dari result
-        if(result.isPresent()){
-            FakultasEntity fakultasData = result.get();
-            fakultasData.setCode(data.getCode());
-            fakultasData.setName(data.getName());
-            fakultasData.setAlamat(data.getAlamat());
-            // update waktu
-            fakultasData.setUpdatedAt(LocalDateTime.now());
-            fakultasData.setUpdatedBy("SYSTEM");
-            try{
-                this.repository.save(fakultasData);
-                // jika berhasil
-                return new FakultasModel(fakultasData);
-            }catch (Exception e){
-                System.out.println("Error update: "+ e.getMessage());
-            }
+        FakultasEntity request = result.get();
+        BeanUtils.copyProperties(data, request);
+        data.setId(id);
+        try {
+            this.repository.save(request);
+            return  Optional.of(new FakultasModel(request));
+        } catch (Exception e){
+            return Optional.empty();
         }
-        return new FakultasModel();
     }
 
     @Override
-    public FakultasModel delete(String id) {
-        // check id
-        if(id == null || id.isBlank() || id.isEmpty()) {
-            return new FakultasModel();
-        }
-
-        // ambil data dari table
-        Optional<FakultasEntity> result = repository.findById(id);
-        // check data dari result
-        if(result.isPresent()){
-            try{
-                FakultasEntity fakultasData = result.get();
-                this.repository.delete(fakultasData);
-                // jika delete berhasil
-                return new FakultasModel(fakultasData);
-            }catch (Exception e){
-                System.out.println("Error delete: "+ e.getMessage());
-            }
-        }
-        return new FakultasModel();
+    public Optional<FakultasModel> delete(String id) {
+        return Optional.empty();
     }
 }

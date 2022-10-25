@@ -1,54 +1,30 @@
 package com.database02.model;
 
 import com.database02.entity.JurusanEntity;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.BeanUtils;
 
+@Getter
+@Setter
 public class JurusanModel {
     private String id;
     private String code;
     private String name;
     private String fakultasId;
+    private FakultasModel fakultas;
 
     //constructor
     public JurusanModel(){
 
     }
     public JurusanModel(JurusanEntity data){
-        this.id = data.getCode();
-        this.code = data.getCode();
-        this.name = data.getName();
-        this.fakultasId = data.getFakultasId();
+        BeanUtils.copyProperties(data, this);
+        if (data.getFakultas() != null){
+            fakultasId = data.getFakultas().getId();
+            fakultas = new FakultasModel(data.getFakultas());
+        }
     }
 
-    //method
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFakultasId() {
-        return fakultasId;
-    }
-
-    public void setFakultasId(String fakultasId) {
-        this.fakultasId = fakultasId;
-    }
 }

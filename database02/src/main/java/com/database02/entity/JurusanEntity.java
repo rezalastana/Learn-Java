@@ -38,19 +38,26 @@ public class JurusanEntity {
     @Column(name = "updated_by", length = 20)
     private String updatedBy;
 
-    @ManyToOne
-    @JoinTable(name = "fakultas_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fakultas_id", nullable = false)
     private FakultasEntity fakultas;
 
     //constructor
     public JurusanEntity(){
 
     }
+    public JurusanEntity(String id) {
+        this.id = id;
+    }
     public JurusanEntity(JurusanModel data){
         this.id = UUID.randomUUID().toString();
         this.code = data.getCode();
         this.name = data.getName();
-        this.fakultasId = data.getFakultasId();
+
+        FakultasEntity fakultasEntity = new FakultasEntity();
+        fakultasEntity.setId(data.getFakultas().getId());
+        this.fakultas = fakultasEntity;
+
         this.createdAt = LocalDateTime.now();
         this.createdBy = "SYSTEM";
         this.updatedAt = LocalDateTime.now();
