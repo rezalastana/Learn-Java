@@ -1,9 +1,9 @@
-package com.database02.service;
+package com.aronsoft.webmvc.service;
 
-import com.database02.entity.FakultasEntity;
-import com.database02.entity.JurusanEntity;
-import com.database02.model.JurusanModel;
-import com.database02.repository.JurusanRepo;
+import com.aronsoft.webmvc.entity.FakultasEntity;
+import com.aronsoft.webmvc.entity.JurusanEntity;
+import com.aronsoft.webmvc.model.JurusanModel;
+import com.aronsoft.webmvc.repository.JurusanRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.database02.service;
+package com.aronsoft.webmvc.service;
 
-import com.database02.model.JurusanModel;
+import com.aronsoft.webmvc.model.JurusanModel;
 
 import java.util.List;
 import java.util.Optional;

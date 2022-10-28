@@ -1,8 +1,8 @@
-package com.database02.service;
+package com.aronsoft.webmvc.service;
 
-import com.database02.entity.MahasiswaEntity;
-import com.database02.model.MahasiswaModel;
-import com.database02.repository.MahasiswaRepo;
+import com.aronsoft.webmvc.entity.MahasiswaEntity;
+import com.aronsoft.webmvc.model.MahasiswaModel;
+import com.aronsoft.webmvc.repository.MahasiswaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class MahasiswaServiceImpl implements  MahasiswaService{
+public class MahasiswaServiceImpl implements MahasiswaService{
     private MahasiswaRepo repository;
 
     @Autowired

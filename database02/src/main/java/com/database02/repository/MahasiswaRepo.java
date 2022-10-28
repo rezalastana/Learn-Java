@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MahasiswaRepository extends JpaRepository<MahasiswaEntity, String> {
+public interface MahasiswaRepo extends JpaRepository<MahasiswaEntity, String> {
 }

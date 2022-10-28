@@ -1,8 +1,8 @@
-package com.database02.service;
+package com.aronsoft.webmvc.service;
 
-import com.database02.entity.FakultasEntity;
-import com.database02.model.FakultasModel;
-import com.database02.repository.FakultasRepo;
+import com.aronsoft.webmvc.entity.FakultasEntity;
+import com.aronsoft.webmvc.model.FakultasModel;
+import com.aronsoft.webmvc.repository.FakultasRepo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +12,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class FakultasServiceImpl implements FakultasService {
+public class FakultasServiceImpl implements FakultasService{
     private FakultasRepo repository;
-
     @Autowired
-    public FakultasServiceImpl(FakultasRepo repository) {
+    public FakultasServiceImpl(FakultasRepo repository){
         this.repository = repository;
     }
 
@@ -32,15 +31,15 @@ public class FakultasServiceImpl implements FakultasService {
 
     @Override
     public Optional<FakultasModel> save(FakultasModel data) {
-        if (data == null) {
+        if(data == null) {
             return Optional.empty();
         }
-        FakultasEntity result = new FakultasEntity(data);
-        try {
+        FakultasEntity result= new FakultasEntity(data);
+        try{
             // proses simpan data => table siswa
             this.repository.save(result);
             return Optional.of(new FakultasModel(result));
-        } catch (Exception e) {
+        }catch (Exception e){
             return Optional.empty();
         }
     }
@@ -48,7 +47,7 @@ public class FakultasServiceImpl implements FakultasService {
     @Override
     public Optional<FakultasModel> update(String id, FakultasModel data) {
         Optional<FakultasEntity> result = this.repository.findById(id);
-        if (result.isEmpty()) {
+        if (result.isEmpty()){
             return Optional.empty();
         }
 
@@ -57,8 +56,8 @@ public class FakultasServiceImpl implements FakultasService {
         data.setId(id);
         try {
             this.repository.save(request);
-            return Optional.of(new FakultasModel(request));
-        } catch (Exception e) {
+            return  Optional.of(new FakultasModel(request));
+        } catch (Exception e){
             return Optional.empty();
         }
     }
