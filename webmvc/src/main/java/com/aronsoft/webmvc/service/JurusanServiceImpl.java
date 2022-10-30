@@ -7,6 +7,7 @@ import com.aronsoft.webmvc.repository.JurusanRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -68,6 +69,7 @@ public class JurusanServiceImpl implements JurusanService{
         request.setName(data.getName());
         FakultasEntity fakultas = new FakultasEntity(data.getFakultas().getId());
         request.setFakultas(fakultas);
+        request.setUpdatedAt(LocalDateTime.now());
 
         try {
             this.repository.save(request);
@@ -79,6 +81,19 @@ public class JurusanServiceImpl implements JurusanService{
 
     @Override
     public Optional<JurusanModel> delete(String id) {
-        return Optional.empty();
+        Optional<JurusanEntity> result = this.repository.findById(id);
+        if (result.isEmpty()){
+            return Optional.empty();
+        }
+        try {
+            JurusanEntity data = result.get();
+            FakultasEntity fakultas = data.getFakultas();
+            fakultas.removeJurusan(data);
+            data.setFakultas(null);
+            this.repository.delete(data);
+            return Optional.of(new JurusanModel(data));
+        }catch (Exception e){
+            return Optional.empty();
+        }
     }
 }

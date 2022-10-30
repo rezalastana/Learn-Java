@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Jurusan</title>
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Data Jurusan</h1>
+<a th:href="@{~/jurusan/add}">New Jurusan</a>
+<table>
+    <thead>
+    <tr>
+        <td>Kode</td>
+        <td>Nama Jurusan</td>
+        <td>Nama Fakultas</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="data : ${dataList}">
+            <td th:text="${data.code}"></td>
+            <td th:text="${data.name}"></td>
+            <td th:text="${data.fakultas.name}"></td>
+            <td>
+                <a th:href="@{~/jurusan/detail/{id}(id=${data.id})}">Detail</a>
+                <a th:href="@{~/jurusan/edit/{id}(id=${data.id})}">Edit</a>
+                <form th:action="@{~/jurusan/delete}" method="post">
+                    <input type="hidden" name="id" th:value="${data.id}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

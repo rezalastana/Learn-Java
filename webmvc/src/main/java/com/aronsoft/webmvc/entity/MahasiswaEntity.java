@@ -29,7 +29,7 @@ public class MahasiswaEntity {
     private String alamat;
 
     @Column(name = "tmp_lahir", length = 100)
-    private String tmpLahir;
+    private String tmptLahir;
 
     @Column(name = "tgl_lahir")
     private LocalDate tglLahir;
@@ -63,13 +63,22 @@ public class MahasiswaEntity {
     public MahasiswaEntity(MahasiswaModel data) {
         BeanUtils.copyProperties(data, this);
         this.id = UUID.randomUUID().toString();
+
+        //buat validasi
+        if (data.getJurusan() != null){
+            //bisa gini
+            //JurusanEntity jurusanEntity = new JurusanEntity();
+            //jurusanEntity.setId(data.getJurusan().getId())
+            //this.jurusan = jurusanEntity
+            //atau langsung
+            this.jurusan = new JurusanEntity(data.getJurusan().getId());
+        }
+
         this.createdAt = LocalDateTime.now();
         this.createdBy = "SYSTEM";
         this.updatedAt = LocalDateTime.now();
         this.updatedBy = "SYSTEM";
-        //buat validasi
-        if (data.getJurusan() != null){
-            this.jurusan = new JurusanEntity(data.getJurusan().getId());
-        }
+
+
     }
 }

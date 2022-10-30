@@ -1,5 +1,6 @@
 package com.aronsoft.webmvc.service;
 
+import com.aronsoft.webmvc.entity.JurusanEntity;
 import com.aronsoft.webmvc.entity.MahasiswaEntity;
 import com.aronsoft.webmvc.model.MahasiswaModel;
 import com.aronsoft.webmvc.repository.MahasiswaRepo;
@@ -13,7 +14,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class MahasiswaServiceImpl implements MahasiswaService{
+public class MahasiswaServiceImpl implements MahasiswaService {
     private MahasiswaRepo repository;
 
     @Autowired
@@ -25,7 +26,7 @@ public class MahasiswaServiceImpl implements MahasiswaService{
     public List<MahasiswaModel> getAll() {
 
         List<MahasiswaEntity> result = this.repository.findAll();
-        if(result.isEmpty()){
+        if (result.isEmpty()) {
             Collections.emptyList();
         }
         // conver dari List<SiswaEntity> => List<SiswaModel>
@@ -35,7 +36,7 @@ public class MahasiswaServiceImpl implements MahasiswaService{
     @Override
     public MahasiswaModel getById(String id) {
         // check id
-        if(id == null || id.isBlank() || id.isEmpty()) {
+        if (id == null || id.isBlank() || id.isEmpty()) {
             return new MahasiswaModel();
         }
         Optional<MahasiswaEntity> result = repository.findById(id);
@@ -44,71 +45,63 @@ public class MahasiswaServiceImpl implements MahasiswaService{
     }
 
     @Override
-    public MahasiswaModel save(MahasiswaModel data) {
-        if(data == null) {
-            return new MahasiswaModel();
+    public Optional<MahasiswaModel> save(MahasiswaModel data) {
+        if (data == null) {
+            return Optional.empty();
         }
-        MahasiswaEntity result= new MahasiswaEntity(data);
-        try{
+        MahasiswaEntity result = new MahasiswaEntity(data);
+        try {
             // proses simpan data => table siswa
             this.repository.save(result);
-            return new MahasiswaModel(result);
-        }catch (Exception e){
-            return new MahasiswaModel();
+            return Optional.of(new MahasiswaModel(result));
+        } catch (Exception e) {
+            return Optional.empty();
         }
     }
 
     @Override
-    public MahasiswaModel update(String id, MahasiswaModel data) {
-        // check id
-        if(id == null || id.isBlank() || id.isEmpty()) {
-            return new MahasiswaModel();
+    public Optional<MahasiswaModel> update(String id, MahasiswaModel data) {
+        Optional<MahasiswaEntity> result = this.repository.findById(id);
+        if (result.isEmpty()) {
+            return Optional.empty();
         }
 
-        // ambil data dari table
-        Optional<MahasiswaEntity> result = repository.findById(id);
         // check data dari result
-        if(result.isPresent()){
-            MahasiswaEntity siswaData = result.get();
-            // replace data lama dengan dataBaru
-            siswaData.setName(data.getName());
-            siswaData.setAlamat(data.getAlamat());
-            siswaData.setJk(data.getJk());
-            // update waktu
-            siswaData.setUpdatedAt(LocalDateTime.now());
-            siswaData.setUpdatedBy("SYSTEM");
+        MahasiswaEntity request = result.get();
+        // replace data lama dengan dataBaru
+        request.setName(data.getName());
+        request.setJk(data.getJk());
+        request.setAlamat(data.getAlamat());
+        request.setTmptLahir(data.getTmptLahir());
+        request.setTglLahir(data.getTglLahir());
+        request.setAgama(data.getAgama());
+        JurusanEntity jurusan = new JurusanEntity(data.getJurusan().getId());
+        request.setJurusan(jurusan);
+        // update waktu
+        request.setUpdatedAt(LocalDateTime.now());
+        request.setUpdatedBy("SYSTEM");
 
-            try{
-                this.repository.save(siswaData);
-                // jika berhasil
-                return new MahasiswaModel(siswaData);
-            }catch (Exception e){
-                System.out.println("Error update: "+ e.getMessage());
-            }
+        try {
+            this.repository.save(request);
+            // jika berhasil
+            return Optional.of(new MahasiswaModel(request));
+        } catch (Exception e) {
+            return Optional.empty();
         }
-        return new MahasiswaModel();
     }
 
     @Override
-    public MahasiswaModel delete(String id) {
-        // check id
-        if(id == null || id.isBlank() || id.isEmpty()) {
-            return new MahasiswaModel();
+    public Optional<MahasiswaModel> delete(String id) {
+        Optional<MahasiswaEntity> result = this.repository.findById(id);
+        if (result.isEmpty()) {
+            return Optional.empty();
         }
-
-        // ambil data dari table
-        Optional<MahasiswaEntity> result = repository.findById(id);
-        // check data dari result
-        if(result.isPresent()){
-            try{
-                MahasiswaEntity siswaData = result.get();
-                this.repository.delete(siswaData);
-                // jika delete berhasil
-                return new MahasiswaModel(siswaData);
-            }catch (Exception e){
-                System.out.println("Error delete: "+ e.getMessage());
-            }
+        try {
+            MahasiswaEntity data = result.get();
+            this.repository.delete(data);
+            return Optional.of(new MahasiswaModel(data));
+        } catch (Exception e) {
+            return Optional.empty();
         }
-        return new MahasiswaModel();
     }
 }

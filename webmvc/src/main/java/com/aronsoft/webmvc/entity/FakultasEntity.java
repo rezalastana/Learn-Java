@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -64,9 +63,11 @@ public class FakultasEntity {
 
     public FakultasEntity(FakultasModel model) {
         BeanUtils.copyProperties(model, this);
-        this.createdAt=LocalDateTime.now();
-        this.createdBy="SYSTEM";
         this.id = UUID.randomUUID().toString();
+        this.createdAt = LocalDateTime.now();
+        this.createdBy = "SYSTEM";
+        this.updatedAt = LocalDateTime.now();
+        this.updatedBy = "SYSTEM";
     }
 
     public void addJurusan(JurusanEntity jurusan){

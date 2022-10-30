@@ -51,16 +51,20 @@ public class JurusanEntity {
     }
 
     public JurusanEntity(JurusanModel model) {
+        this.id = UUID.randomUUID().toString();
         this.code = model.getCode();
         this.name = model.getName();
 
-        FakultasEntity fakultasEntity = new FakultasEntity();
-        fakultasEntity.setId(model.getFakultas().getId());
-        this.fakultas = fakultasEntity;
+        if (model.getFakultas() != null){
+            FakultasEntity fakultasEntity = new FakultasEntity();
+            fakultasEntity.setId(model.getFakultas().getId());
+            this.fakultas = fakultasEntity;
+        }
 
         this.createdAt=LocalDateTime.now();
         this.createdBy="SYSTEM";
-        this.id = UUID.randomUUID().toString();
+        this.updatedAt=LocalDateTime.now();
+        this.updatedBy="SYSTEM";
     }
 
     public JurusanEntity(String code, String name) {
