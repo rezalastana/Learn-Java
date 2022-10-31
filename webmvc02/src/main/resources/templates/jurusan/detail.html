@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Jurusan</title>
+</head>
+<body>
+<h1>Detail Jurusan</h1>
+<a th:href="@{~/jurusan}">Kembali</a>
+<br><br>
+<form action="#" method="post">
+    <label>Kode</label>
+    <input readonly="readonly" type="text" name="code" id="code" th:value="${data.code}"> <br>
+
+    <label>Nama Jurusan</label>
+    <input readonly="readonly" type="text" name="name" id="name" th:value="${data.name}"> <br>
+
+    <label>Nama Fakultas</label>
+    <input readonly="readonly" type="text" name="fakultas" id="fakultas" th:value="${data.fakultas.name}"> <br>
+</form>
+</body>
+</html>
