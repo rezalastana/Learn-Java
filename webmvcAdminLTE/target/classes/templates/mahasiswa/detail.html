@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Mahasiswa</title>
+</head>
+<body>
+<h1>Detail Mahasiswa</h1>
+<a th:href="@{~/mahasiswa}">Kembali</a>
+<br><br>
+<form action="#" method="post">
+    <label >Nama Mahasiswa</label><br>
+    <input type="text" readonly="readonly" name="name" id="name" th:value="${data.name}"><br>
+    
+    <label >Jenis Kelamin</label><br>
+    <input type="text" readonly="readonly" name="jk" id="jk" th:value="${data.jk}"> <br>
+    
+    <label >Alamat</label><br>
+    <input type="text" readonly="readonly" name="alamat" id="alamat" th:value="${data.alamat}"> <br>
+    
+    <label >Tempat Lahir</label><br>
+    <input type="text" readonly="readonly" name="tmptLahir" id="tmptLahir" th:value="${data.tmptLahir}"> <br>
+    
+    <label >Tanggal Lahir</label><br>
+    <input type="text" readonly="readonly" name="tglLahir" id="tglLahir" th:value="${data.tglLahir}" placeholder="dd-MM-yyyy">
+    <br>
+
+    <label >Agama</label><br>
+    <input type="text" readonly="readonly" name="agama" id="agama" th:value="${data.agama}"> <br>
+
+    <label >Jurusan</label>
+    <input type="text" readonly="readonly" name="jurusan" id="jurusan" th:value="${data.jurusan.name}"> <br>
+    
+
+</form>
+
+</body>
+</html>
