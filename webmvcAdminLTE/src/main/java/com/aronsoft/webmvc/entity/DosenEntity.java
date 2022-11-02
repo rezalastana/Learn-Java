@@ -25,7 +25,7 @@ public class DosenEntity {
     @Column(name = "id", length = 36)
     private String id;
 
-     @Column(name = "nip", length = 20, unique = true)
+    @Column(name = "nip", length = 20, unique = true)
     private String nip;
 
     @Column(name = "nama_dosen", length = 225)
