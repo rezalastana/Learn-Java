@@ -1,11 +1,9 @@
 package com.aronsoft.webmvc.controller;
 
 import com.aronsoft.webmvc.model.DosenModel;
-import com.aronsoft.webmvc.model.FakultasModel;
 import com.aronsoft.webmvc.service.DosenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,7 +32,7 @@ public class DosenController {
         return new ModelAndView("dosen/add.html");
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public ModelAndView save(@ModelAttribute DosenModel request){
         this.service.save(request);
         return new ModelAndView("redirect:/dosen");
@@ -54,7 +52,7 @@ public class DosenController {
     @PostMapping("/update")
     public ModelAndView update(@ModelAttribute DosenModel request){
         this.service.update(request.getId(), request);
-        return new ModelAndView("redirect:/fakultas");
+        return new ModelAndView("redirect:/dosen");
     }
 
     @GetMapping("/detail/{id}")

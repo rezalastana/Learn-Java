@@ -67,7 +67,7 @@ public class DosenServiceImpl implements DosenService {
     }
 
     @Override
-    public Optional<DosenModel> delte(String id) {
+    public Optional<DosenModel> delete(String id) {
         Optional<DosenEntity> result = this.repository.findById(id);
         if (result.isEmpty()){
             return Optional.empty();

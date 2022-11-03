@@ -11,5 +11,5 @@ public interface DosenService {
     public DosenModel getById(String id);
     public Optional<DosenModel> save(DosenModel data);
     public Optional<DosenModel> update(String id, DosenModel data);
-    public Optional<DosenModel> delte(String id);
+    public Optional<DosenModel> delete(String id);
 }
