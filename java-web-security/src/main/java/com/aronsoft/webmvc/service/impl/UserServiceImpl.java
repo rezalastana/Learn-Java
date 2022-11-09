@@ -34,6 +34,11 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    public Long getCount() {
+        return this.repo.count();
+    }
+
+    @Override
     public List<UserEntity> get() {
         List<UserEntity> result = this.repo.findAll();
         if (result==null)

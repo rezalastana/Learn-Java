@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -73,5 +74,10 @@ public class UserEntity {
     public void removeRole(RoleEntity item){
         this.roles.remove(item);
         item.getUsers().remove(this);
+    }
+
+    @PrePersist
+    protected void onCreated() {
+        id = UUID.randomUUID().toString().replace("-","");
     }
 }

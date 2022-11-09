@@ -6,6 +6,7 @@ import com.aronsoft.webmvc.model.UserModel;
 import java.util.List;
 
 public interface UserService {
+    public Long getCount();
     public List<UserEntity> get();
     public List<UserModel> getDto();
     public List<UserModel> getDtoByKeyword(String keyword);

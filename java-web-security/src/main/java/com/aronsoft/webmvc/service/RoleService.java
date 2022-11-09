@@ -5,6 +5,7 @@ import com.aronsoft.webmvc.entity.RoleEntity;
 import java.util.List;
 
 public interface RoleService {
+    public Long getCount();
     public List<RoleEntity> get();
     public List<RoleEntity> getByNames(List<String> names);
     public RoleEntity getByName(String name);
