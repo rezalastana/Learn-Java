@@ -7,8 +7,8 @@ import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,10 +16,10 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "user_tab")
+@Table(name="user_tab")
 public class UserEntity {
     @Id
-    @Column(name = "id",length = 36)
+    @Column(name = "id", length = 36)
     private String id;
 
     @Column(name = "username", length = 64)

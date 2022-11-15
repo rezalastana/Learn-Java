@@ -18,6 +18,7 @@ import java.util.Map;
 
 @Slf4j
 public class CustomUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     public CustomUrlAuthenticationSuccessHandler() {
@@ -50,6 +51,9 @@ public class CustomUrlAuthenticationSuccessHandler implements AuthenticationSucc
         Map<String, String> roleTargetUrlMap = new HashMap<>();
         roleTargetUrlMap.put("ROLE_USER", "/dashboard");
         roleTargetUrlMap.put("ROLE_ADMIN", "/dashboard");
+        roleTargetUrlMap.put("ROLE_MAHASISWA", "/dashboard");
+        roleTargetUrlMap.put("ROLE_DOSEN", "/dashboard");
+        roleTargetUrlMap.put("ROLE_KEUANGAN", "/dashboard");
 
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (final GrantedAuthority grantedAuthority : authorities) {
@@ -63,10 +67,6 @@ public class CustomUrlAuthenticationSuccessHandler implements AuthenticationSucc
         throw new IllegalStateException();
     }
 
-    /**
-     * Removes temporary authentication-related data which may have been stored in the session
-     * during the authentication process.
-     */
     protected final void clearAuthenticationAttributes(final HttpServletRequest request) {
         final HttpSession session = request.getSession(false);
 

@@ -1,5 +1,4 @@
 package com.aronsoft.webmvc.config;
-
 import com.aronsoft.webmvc.entity.FakultasEntity;
 import com.aronsoft.webmvc.entity.JurusanEntity;
 import com.aronsoft.webmvc.entity.RoleEntity;
@@ -62,15 +61,15 @@ public class DbInit implements CommandLineRunner {
 
         if(userService.getCount()==0){
             RoleEntity adminRole = roleService.getByName("ROLE_ADMIN");
-            UserEntity admin = new UserEntity("admin", encoder.encode("admin32!"),"admin@gmail.com", Arrays.asList(adminRole));
+            UserEntity admin = new UserEntity("admin", encoder.encode("admin321"),"admin@gmail.com", Arrays.asList(adminRole));
             this.userService.save(admin);
 
             RoleEntity mhsRole = roleService.getByName("ROLE_MAHASISWA");
-            UserEntity mhs = new UserEntity("mahasiswa", encoder.encode("mahasiswa32!"),"mahasiswa@gmail.com", Arrays.asList(mhsRole));
+            UserEntity mhs = new UserEntity("templates/mahasiswa", encoder.encode("mahasiswa321"),"mahasiswa@gmail.com", Arrays.asList(mhsRole));
             this.userService.save(mhs);
 
             RoleEntity dosenRole = roleService.getByName("ROLE_DOSEN");
-            UserEntity dosen = new UserEntity("dosen", encoder.encode("dosen32!"),"dosen@gmail.com", Arrays.asList(dosenRole));
+            UserEntity dosen = new UserEntity("templates/dosen", encoder.encode("dosen321"),"dosen@gmail.com", Arrays.asList(dosenRole));
             this.userService.save(dosen);
         }
     }

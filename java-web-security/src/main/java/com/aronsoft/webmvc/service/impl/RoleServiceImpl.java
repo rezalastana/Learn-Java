@@ -17,7 +17,7 @@ public class RoleServiceImpl implements RoleService {
     private RoleRepo repo;
 
     @Autowired
-    public RoleServiceImpl(RoleRepo repo){
+    public RoleServiceImpl(RoleRepo repo) {
         this.repo = repo;
     }
 
@@ -29,9 +29,9 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<RoleEntity> get() {
         List<RoleEntity> result = this.repo.findAll();
-        if (result==null)
+        if(result == null)
             result = Collections.emptyList();
-        log.info("Role get all data, rsult: {}", result);
+        log.info("Role get all data, result: {}", result);
         return result;
     }
 
