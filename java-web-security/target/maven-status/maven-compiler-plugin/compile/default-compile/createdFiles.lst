@@ -6,14 +6,18 @@ com\aronsoft\webmvc\entity\GedungEntity.class
 com\aronsoft\webmvc\config\AppConfig.class
 com\aronsoft\webmvc\controller\FakultasController.class
 com\aronsoft\webmvc\service\impl\FakultasServiceImpl.class
+com\aronsoft\webmvc\service\RuangService.class
 com\aronsoft\webmvc\repository\FakultasRepo.class
 com\aronsoft\webmvc\service\JurusanService.class
 com\aronsoft\webmvc\entity\RuangEntity.class
 com\aronsoft\webmvc\WebmvcApplication.class
+com\aronsoft\webmvc\service\GedungService.class
+com\aronsoft\webmvc\model\GedungModel.class
 com\aronsoft\webmvc\repository\MataKuliahRepo.class
 com\aronsoft\webmvc\config\security\CustomAuthenticationFailureHandler.class
 com\aronsoft\webmvc\model\DosenModel.class
 com\aronsoft\webmvc\controller\JurusanController.class
+com\aronsoft\webmvc\repository\RuangRepo.class
 com\aronsoft\webmvc\service\impl\DosenServiceImpl.class
 com\aronsoft\webmvc\service\DosenService.class
 com\aronsoft\webmvc\service\impl\JurusanServiceImpl.class
@@ -26,6 +30,7 @@ com\aronsoft\webmvc\config\UserPrincipalService.class
 com\aronsoft\webmvc\controller\MahasiswaController.class
 com\aronsoft\webmvc\repository\JurusanRepo.class
 com\aronsoft\webmvc\service\impl\RoleServiceImpl.class
+com\aronsoft\webmvc\repository\GedungRepo.class
 com\aronsoft\webmvc\controller\WebErrorController.class
 com\aronsoft\webmvc\config\security\RefererAuthenticationSuccessHandler.class
 com\aronsoft\webmvc\controller\DosenController.class
@@ -42,6 +47,7 @@ com\aronsoft\webmvc\entity\DosenEntity.class
 com\aronsoft\webmvc\config\DbInit.class
 com\aronsoft\webmvc\service\FakultasService.class
 com\aronsoft\webmvc\repository\MahasiswaRepo.class
+com\aronsoft\webmvc\service\impl\GedungServiceImpl.class
 com\aronsoft\webmvc\config\SecurityConfig.class
 com\aronsoft\webmvc\controller\HomeController.class
 com\aronsoft\webmvc\service\RoleService.class
@@ -49,3 +55,4 @@ com\aronsoft\webmvc\config\security\CustomLogoutSuccessHandler.class
 com\aronsoft\webmvc\repository\DosenRepo.class
 com\aronsoft\webmvc\service\impl\MahasiswaServiceImpl.class
 com\aronsoft\webmvc\entity\UserEntity.class
+com\aronsoft\webmvc\model\RuangModel.class

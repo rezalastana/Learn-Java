@@ -1,5 +1,8 @@
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\RoleService.java
+E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\repository\GedungRepo.java
+E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\RuangService.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\controller\WebErrorController.java
+E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\repository\RuangRepo.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\entity\GedungEntity.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\entity\DosenEntity.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\entity\FakultasEntity.java
@@ -14,6 +17,7 @@ E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\web
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\repository\RoleRepo.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\repository\UserRepo.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\impl\DosenServiceImpl.java
+E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\model\RuangModel.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\config\UserPrincipalService.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\impl\RoleServiceImpl.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\impl\UserServiceImpl.java
@@ -32,11 +36,14 @@ E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\web
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\config\security\CustomAccessDeniedHandler.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\controller\DosenController.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\config\AppConfig.java
+E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\GedungService.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\controller\FakultasController.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\MahasiswaService.java
+E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\impl\GedungServiceImpl.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\entity\MahasiswaEntity.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\service\impl\JurusanServiceImpl.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\entity\JurusanEntity.java
+E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\model\GedungModel.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\model\DosenModel.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\entity\RuangEntity.java
 E:\BELAJAR CODING\BOOTCAMP_JAVA\java-web-security\src\main\java\com\aronsoft\webmvc\model\MataKuliahModel.java
