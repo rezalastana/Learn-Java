@@ -18,11 +18,11 @@ public class JurusanModel {
     public JurusanModel(){
 
     }
-    public JurusanModel(JurusanEntity data){
-        BeanUtils.copyProperties(data, this);
-        if (data.getFakultas() != null){
-            fakultasId = data.getFakultas().getId();
-            fakultas = new FakultasModel(data.getFakultas());
+    public JurusanModel(JurusanEntity entity){
+        BeanUtils.copyProperties(entity, this);
+        if (entity.getFakultas() != null){
+            fakultasId = entity.getFakultas().getId();
+            fakultas = new FakultasModel(entity.getFakultas());
         }
     }
 }

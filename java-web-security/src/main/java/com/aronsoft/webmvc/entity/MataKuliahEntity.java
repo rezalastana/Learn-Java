@@ -3,7 +3,6 @@ package com.aronsoft.webmvc.entity;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import javax.persistence.*;
-import java.time.LocalDate;
 
 import org.springframework.beans.BeanUtils;
 
