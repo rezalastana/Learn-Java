@@ -21,6 +21,11 @@ public class FakultasModel {
     public FakultasModel(){
 
     }
+    public FakultasModel(String code, String name, String alamat){
+        this.code = code;
+        this.name = name;
+        this.alamat = alamat;
+    }
     public FakultasModel(FakultasEntity entity){
         BeanUtils.copyProperties(entity, this);
     }

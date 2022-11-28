@@ -6,6 +6,8 @@ import org.springframework.beans.BeanUtils;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 public class DosenModel {
@@ -19,6 +21,14 @@ public class DosenModel {
     //constructor
     public DosenModel() {
 
+    }
+
+    public DosenModel(String nip, String name, String jk, String alamat, String gelar){
+        this.nip = nip;
+        this.name = name;
+        this.jk = jk;
+        this.alamat = alamat;
+        this.gelar = gelar;
     }
     
     public DosenModel(DosenEntity entity){

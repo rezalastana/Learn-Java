@@ -54,6 +54,17 @@ public class DosenEntity {
     public DosenEntity() {
 
     }
+    public DosenEntity(String nip, String name, String jk, String alamat, String gelar){
+        this.nip = nip;
+        this.name = name;
+        this.jk = jk;
+        this.alamat = alamat;
+        this.gelar = gelar;
+        this.createdAt = LocalDateTime.now();
+        this.createdBy = "SYSTEM";
+        this.updatedAt = LocalDateTime.now();
+        this.updatedBy = "SYSTEM";
+    }
     public DosenEntity(DosenModel model){
         BeanUtils.copyProperties(model, this);
         this.id = UUID.randomUUID().toString();
