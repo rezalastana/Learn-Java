@@ -20,7 +20,6 @@ class ScopeTest {
 
     @Test
     void testPrototypeScope(){
-
         //penggunaan @Scope("prototype") akan membuat object baru pada bean setiap kali bean di akses, sehingga kalau di cek dengan notSame, makan akan success
         //namun jika pada @Scope diubah menjadi singleton maka test akan error, karena hanya dibuat sekali dalam spring IoC
         Foo foo1 = context.getBean(Foo.class);
