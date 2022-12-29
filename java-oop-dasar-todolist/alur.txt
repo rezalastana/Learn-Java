@@ -1,0 +1,26 @@
+1.  Membuat Entity (package entity)
+  =>  1. package entity -> TodoList
+      2. property todo
+      3. getter setter
+      4. constructor none paramater dan 1 paramater
+
+2.  Business Logic
+  =>  1. membuat repository
+      2. buat interface terlebih dahulu -> berguna jika menggunakan java unit test (mocking)
+      3. package repository -> TodolistRepository (nama repository sama seperti nama pada entity)
+
+3.  Service
+  =>  1. package service -> TodolistService
+      2. buat dengan interface
+
+4.  View
+  =>  1. membuat package View
+      2. class -> TodoListView
+
+5.  Implementasi menampilkan Todolist
+  =>  1. Menggunakan layer service dan repository
+      2. package service -> TodolistServiceImpl
+      3. di implement kan ke TodolistService
+      4. import TodolistRepository
+      5. inject constructor TodolistRepository
+      6. package repository -> TodolistRepositoryImpl
