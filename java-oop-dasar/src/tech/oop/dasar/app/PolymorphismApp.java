@@ -1,4 +1,10 @@
-package tech;
+package tech.oop.dasar.app;
+
+import tech.Factorial;
+import tech.oop.dasar.inheritance.Employee;
+import tech.oop.dasar.inheritance.Manager;
+import tech.oop.dasar.inheritance.VicePresident;
+
 public class PolymorphismApp {
     public static void main(String[] args) {
 

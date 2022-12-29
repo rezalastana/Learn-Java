@@ -1,6 +1,6 @@
 package tech.oop.dasar.app;
 
-import tech.Person;
+import tech.oop.dasar.dasar.Person;
 
 public class PersonApp {
     public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class PersonApp {
         Person person3 = new Person("Basizal Reza Astana-", "Sleman-"); //membuat object yang sudah dibuat pada CONSTRUCTOR
         System.out.print(person3.name);
         System.out.print(person3.address);
-        System.out.print(person3.country);
+        System.out.println(person3.country);
 
         //Constructor juga bisa memaksa orang untuk mengisi filed nantinya... walaupun tidak terpakai
 
@@ -45,7 +45,6 @@ public class PersonApp {
         // person4.sayHelloToAll(); //panggil METHOD sayHelloToAll dengan output =>"Halo semuanya, perkenalkan nama saya Refanda"
 
         Person person5 = new Person();
-
-        // System.out.println(person5.factorial(5));
+        System.out.println(person5.factorial(5));
     }
 }

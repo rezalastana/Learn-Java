@@ -1,0 +1,17 @@
+package tech.oop.dasar.app;
+
+import tech.oop.dasar.superKeyword.*;
+
+public class ShapeApp {
+    public static void main(String[] args) {
+
+        var shape = new Shape();
+        System.out.println(shape.getCorner());
+
+
+        var rectangle = new Rectangle();
+        System.out.println(rectangle.getCorner());//return 4
+        System.out.println(rectangle.getParentCorner());//Nilai mengambil dari Parentclass menggunakan super, sehingga return nya akan 0
+
+    }
+}
