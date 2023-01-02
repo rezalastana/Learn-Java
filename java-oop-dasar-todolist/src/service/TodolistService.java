@@ -1,6 +1,6 @@
 package service;
 
-public interface TodolistService {
+public interface TodoListService {
   
   void showTodolist();
 

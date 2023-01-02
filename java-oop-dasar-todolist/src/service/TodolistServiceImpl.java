@@ -1,30 +1,29 @@
 package service;
 
-import javax.xml.transform.Source;
-
 import entity.Todolist;
 import repository.TodolistRepository;
 
-public class TodolistServiceImpl implements TodolistService {
+public class TodoListServiceImpl implements TodoListService {
 
-  private TodolistRepository todolistRepository;
+  private TodolistRepository todolistRepository; //semua data aksesnya melalui repository
 
-  public TodolistServiceImpl(TodolistRepository todolistRepository){
+  //Constructor
+  public TodoListServiceImpl(TodolistRepository todolistRepository){
     this.todolistRepository = todolistRepository;
   }
 
 
   @Override
   public void showTodolist() {
-    Todolist[] model = todolistRepository.getAll();
+    Todolist[] model = todolistRepository.getAll();//akan mengambil seluruh data todolist
 
     System.out.println("TODOLIST");
     for (var i=0; i < model.length; i++) {
-      var todo = model[i];
+      var todolist = model[i];
       var nomor = i+1;
 
-      if (todo != null) {
-        System.out.println(nomor+". "+todo);
+      if (todolist != null) {
+        System.out.println(nomor+". "+todolist.getTodo());
       }
     }
     
@@ -32,13 +31,21 @@ public class TodolistServiceImpl implements TodolistService {
 
   @Override
   public void addTodolist(String todo) {
-    // TODO Auto-generated method stub
+    Todolist todolist = new Todolist(todo);
+    todolistRepository.add(todolist);
+    System.out.println("Sukses menambahkan TODO : " +todo);
+
     
   }
 
   @Override
   public void removeTodolist(Integer number) {
-    // TODO Auto-generated method stub
+    boolean success = todolistRepository.remove(number);
+    if (success) {
+      System.out.println("Sukses menghapus TODO : " + number);
+    } else {
+      System.out.println("Gagal menghapus TODO : " + number);
+    }
     
   }
   
