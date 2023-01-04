@@ -2,7 +2,7 @@ package repository;
 
 import entity.Todolist;
 
-public class TodoListRepositoryImpl implements TodolistRepository {
+public class TodoListRepositoryImpl implements TodoListRepository {
 
   public Todolist[] data = new Todolist[10];//dalam contoh masukkan value 10 array
 

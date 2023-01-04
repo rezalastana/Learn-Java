@@ -1,14 +1,14 @@
 package service;
 
 import entity.Todolist;
-import repository.TodolistRepository;
+import repository.TodoListRepository;
 
 public class TodoListServiceImpl implements TodoListService {
 
-  private TodolistRepository todolistRepository; //semua data aksesnya melalui repository
+  private TodoListRepository todolistRepository; //semua data aksesnya melalui repository
 
   //Constructor
-  public TodoListServiceImpl(TodolistRepository todolistRepository){
+  public TodoListServiceImpl(TodoListRepository todolistRepository){
     this.todolistRepository = todolistRepository;
   }
 

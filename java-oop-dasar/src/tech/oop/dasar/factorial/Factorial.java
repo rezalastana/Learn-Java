@@ -1,4 +1,4 @@
-package tech;
+package tech.oop.dasar.factorial;
 public class Factorial {
 
     int factorial(int value){
@@ -34,7 +34,7 @@ public class Factorial {
     }
 
     //Cara lain menggunakan TailRecusrive
-    int factorialTailRecursive (int total, int value){
+    public int factorialTailRecursive(int total, int value){
         if (value <= 0){
             return total;
         } else {
@@ -49,7 +49,7 @@ public class Factorial {
         }
     }
 
-    int penjumlahanRecursive (int value){
+    public int penjumlahanRecursive(int value){
         if (value == 0){
             return 0;
         } else {
