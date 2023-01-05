@@ -1,0 +1,14 @@
+1. Buat struktur folder terlebih dahulu
+2. Buat database dengan nama java-api
+3. Connetion database -> application.properties //setting
+4. Buat entity -> Product
+5. Run untuk generate table pada DB
+//Repository -> DAO yang berhubungan dengan data (memanipulasi data di table)
+6. Buat repository Product -> ProductRepo || disini akan menggunakan CrudRepository agar mudah
+//Service -> berisi bisnis logic
+7. Buat service Product -> ProductService
+//Make Controller
+8. Buat controller Product
+
+//handling id yang sudah terhapus
+9. Tambahkan handling pada Productservice
