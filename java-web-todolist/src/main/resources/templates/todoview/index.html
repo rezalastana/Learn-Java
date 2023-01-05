@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8" />
+    <title>TodoList</title>
+</head>
+<body>
+<!-- Breadcrumb Start-->
+<div class="row mb-2" layout:fragment="breadcrumb">
+    <div class="col-sm-6">
+        <h1 class="m-0">Todolist</h1>
+    </div><!-- /.col -->
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">TodoList</li>
+        </ol>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- Breadcrumb End-->
+
+<div class="row" layout:fragment="content">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <!-- card mulai -->
+        <div class="card">
+            <!-- header -->
+            <div class="card-header bg-success">
+            <h3 class="card-title">TodoList</h3>
+
+                <!--- header tools -->
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+<!--                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">-->
+
+                        <div>
+<!--                            <button type="submit" class="btn btn-default">-->
+<!--                                <i class="fas fa-search"></i>-->
+<!--                            </button>-->
+                            <a th:href="@{~/todoList/add}" id="btn-add" class="btn btn-s btn-primary">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- tools end -->
+            </div>
+            <!-- header end -->
+
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>Nomor Id</td>
+                        <td>TodoList</td>
+                        <td>Action</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="data : ${todoList}">
+                        <td th:text="${data.id}"></td>
+                        <td th:text="${data.todoList}"></td>
+                        <td>
+                            <a th:href="@{~/todoList/detail/{id}(id=${data.id})}" class="btn btn-s btn-info btn-detail">
+                                <i class="fas fa-eye"></i>
+                            </a> &nbsp
+                            <a th:href="@{~/todoList/edit/{id}(id=${data.id})}" class="btn btn-s btn-warning btn-edit">
+                                <i class="fas fa-edit"></i>
+                            </a> &nbsp
+                            <a th:href="@{~/todoList/delete/{id}(id=${data.id})}" class="btn btn-s btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </a> &nbsp
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script layout:fragment="client-script">
+    // event button add
+    $("#btn-add").on("click", function (e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url:url,
+            dataType: 'HTML',
+            method: 'GET',
+            success: function (result){
+                $('#modal-form').find('.modal-content').html(result);
+                $("#modal-form").modal('show');
+            }
+        })
+        return;
+    });
+
+    $(".btn-detail").on("click", function (e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url:url,
+            dataType: 'HTML',
+            method: 'GET',
+            success: function (result){
+                $('#modal-form').find('.modal-content').html(result);
+                $("#modal-form").modal('show');
+            }
+        })
+        return;
+    });
+
+    $(".btn-edit").on("click", function (e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url:url,
+            dataType: 'HTML',
+            method: 'GET',
+            success: function (result){
+                $('#modal-form').find('.modal-content').html(result);
+                $("#modal-form").modal('show');
+            }
+        })
+        return;
+    });
+
+    // event dari button di click
+    $("#btn-coba").on("click", function (){
+        alert("test button click");
+        console.log("On log info");
+
+        $("#table-data").hide();
+    });
+
+    $('#modal-form').on('submit','#form-input', function (){
+        $.ajax({
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            dataType: 'html',
+            type: 'POST',
+            success: function (data){
+                // masukan dulu result ke modal
+                $('#modal-form').find('.modal-content').html(data);
+                // check jumlah element yang memiliki class has-error
+                var check = $("#modal-form").find(".modal-content").find(".error").length;
+                console.log("count invalid : "+ check);
+                // jika tidak ada error
+                if(check==0){
+                    $("#modal-form").modal('hide');
+                    location.reload();
+                }
+            }
+        });
+        return false;
+    });
+</script>
+</body>
+</html>

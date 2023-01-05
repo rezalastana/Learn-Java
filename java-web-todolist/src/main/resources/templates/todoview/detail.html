@@ -1,0 +1,22 @@
+<!-- Card Start  -->
+<form action="#" method="post">
+
+    <div class="modal-header bg-info">
+        <h3 class="modal-title">Todo List Detail</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body row">
+        <div class="card-body">
+            <div class="form-group">
+                <label>Todo List</label>
+                <input type="text" name="todoList" th:value="${data.todoList}" class="form-control" readonly="readonly" >
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<!-- Card End  -->

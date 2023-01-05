@@ -1,0 +1,24 @@
+<!-- Card Start  -->
+<form th:action="@{~/todoList/save}" method="post" id="form-input" th:object="${todoList}">
+    <div class="card">
+        <div class="card-header bg-primary">
+            <h3 class="card-title">Add New Todo List</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group">
+                <label for="todoList">Todo List</label>
+                <input id="todoList" type="text" th:field="*{todoList}" th:class="${#fields.hasErrors('todoList')} ? 'form-control is-invalid': 'form-control'">
+                <span th:if="${#fields.hasErrors('todoList')}" class="error invalid-feedback" th:errors="*{todoList}"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer justify-content-between">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+
+</form>
+<!-- Card End  -->
