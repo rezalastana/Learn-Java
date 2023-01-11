@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Setter
@@ -16,6 +17,8 @@ public class ProductEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment primary key
     private Long id;
 
+    //annotation @NotEmpty
+    @NotEmpty(message = "Name is required")
     @Column(name = "product_name",length = 100) //konfigurasi column pada DB
     private String name;
 

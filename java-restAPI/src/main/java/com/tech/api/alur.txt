@@ -12,3 +12,9 @@
 
 //handling id yang sudah terhapus
 9. Tambahkan handling pada Productservice
+
+===RESTAPI VALIDATION===
+misalkan ketika input data, namun name tidak terisikan maka akan di return null <-> ini divalidasi harus diisi
+1. tambahkan dependency validation
+2. validation di entity dengan @NotEmpty
+3. tambahkan @Valid pada controller create

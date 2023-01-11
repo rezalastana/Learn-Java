@@ -57,7 +57,14 @@
                     </thead>
                     <tbody>
                     <tr th:each="data : ${todoList}">
-                        <td th:text="${data.id}"></td>
+                        <!-- th:text="${data.id}"-->
+                        <td >
+                            <?php
+                                for ($x = 1; $x <= data.length; $x++) {
+                                echo "$x";
+                            }
+                            ?>
+                        </td>
                         <td th:text="${data.todoList}"></td>
                         <td>
                             <a th:href="@{~/todoList/detail/{id}(id=${data.id})}" class="btn btn-s btn-info btn-detail">

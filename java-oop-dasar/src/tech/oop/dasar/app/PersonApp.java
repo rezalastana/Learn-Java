@@ -6,7 +6,7 @@ public class PersonApp {
     public static void main(String[] args) {
 
         // manipulasi properties
-        var person1 = new Person(); //object, dengan constructor parameter kosong
+        Person person1 = new Person(); //object, dengan constructor parameter kosong
         person1.name = "Eko";
         person1.address = "Jakarta";
         // person1.country = "Amerika";

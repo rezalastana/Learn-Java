@@ -4,7 +4,10 @@ import com.tech.api.model.entity.ProductEntity;
 import com.tech.api.model.repo.ProductRepo;
 import com.tech.api.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/products")
@@ -16,7 +19,11 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping //digunakan untuk post data
-    public ProductEntity create(@RequestBody ProductEntity product){ //object yang dikirim adalah product, melalui requestbody
+    public ProductEntity create(@Valid @RequestBody ProductEntity product, Errors errors){ //object yang dikirim adalah product, melalui requestbody
+        //validation
+        if (errors.hasErrors()){ //apakah ada error? jika ada
+
+        }
         return productService.create(product);
     }
 
