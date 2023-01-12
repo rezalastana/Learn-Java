@@ -2,7 +2,6 @@ package com.tech.controller;
 
 import com.tech.model.PalindromeRequest;
 import com.tech.service.Logic01Service;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -18,6 +17,7 @@ import java.util.Map;
 public class LogicController {
     private final Logic01Service logic01Service;
 
+    //constructor untuk menginstace class Service
     @Autowired
     public LogicController(Logic01Service logic01Service){
         this.logic01Service = logic01Service;
@@ -26,12 +26,12 @@ public class LogicController {
     @GetMapping("/soal01/{param}")
     public ResponseEntity<Object> soal01(@PathVariable("param") String param){
         Map<Character, Integer> result = logic01Service.soal01(param);
-        return ResponseEntity.ok().body(result); //API
+        return ResponseEntity.ok().body(result);
     }
 
     @GetMapping("/soal02")
     public ResponseEntity<Object> soal02(@RequestBody PalindromeRequest request){
-        PalindromeRequest result = logic01Service.soal02(request);
+        Map<Integer, Character> result = logic01Service.soal02(request);
         return ResponseEntity.ok().body(result);
     }
 

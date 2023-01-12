@@ -2,36 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0faa26c7-a876-4f38-be22-e063b46cd755" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java-collection.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tech/bas/collections/collectionApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tech/bas/iterable/iterableApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tech/bas/map/EnumMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tech/bas/map/hashMapApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tech/bas/map/identityHashMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tech/bas/map/linkedHashMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tech/bas/map/weakMapApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-hitunghuruf/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-hitunghuruf/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-hitunghuruf/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-hitunghuruf/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-hitunghuruf/java-hitunghuruf.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-hitunghuruf/src/HitunfHuruf1While.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-hitunghuruf/src/HitungHuruf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-hitunghuruf/src/TotalHuruf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-logic/src/main/java/com/tech/controller/LogicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-logic/src/main/java/com/tech/model/PalindromeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java-logic/src/main/java/com/tech/service/Logic01Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-oop-dasar/src/tech/oop/dasar/app/PersonApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-oop-dasar/src/tech/oop/dasar/app/PersonApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-restAPI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-restAPI/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-restAPI/src/main/java/com/tech/api/alur.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../java-restAPI/src/main/java/com/tech/api/alur.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-restAPI/src/main/java/com/tech/api/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-restAPI/src/main/java/com/tech/api/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-restAPI/src/main/java/com/tech/api/model/entity/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-restAPI/src/main/java/com/tech/api/model/entity/ProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-web-todolist/src/main/resources/templates/todoview/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../java-web-todolist/src/main/resources/templates/todoview/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tech/bas/practice/CharArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tech/bas/practice/HashMapAppPractice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tech/bas/practice/PalindormePractice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-logic/src/main/java/com/tech/controller/LogicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-logic/src/main/java/com/tech/controller/LogicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java-logic/src/main/java/com/tech/service/Logic01Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java-logic/src/main/java/com/tech/service/Logic01Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +41,20 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.EnumMap">
+  <component name="RunManager" selected="Application.CharArray">
+    <configuration name="CharArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tech.bas.practice.CharArray" />
+      <module name="java-collection" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.bas.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EnumMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tech.bas.map.EnumMap" />
       <module name="java-collection" />
@@ -79,12 +68,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="hashMapApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tech.bas.map.hashMapApp" />
+    <configuration name="HashMapAppPractice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tech.bas.practice.HashMapAppPractice" />
       <module name="java-collection" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.bas.map.*" />
+          <option name="PATTERN" value="tech.bas.practice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,12 +81,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="identityHashMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tech.bas.map.identityHashMap" />
+    <configuration name="PalindormePractice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tech.bas.practice.PalindormePractice" />
       <module name="java-collection" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.bas.map.*" />
+          <option name="PATTERN" value="tech.bas.practice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,26 +107,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="weakMapApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tech.bas.map.weakMapApp" />
-      <module name="java-collection" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tech.bas.map.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CharArray" />
+        <item itemvalue="Application.PalindormePractice" />
+        <item itemvalue="Application.HashMapAppPractice" />
         <item itemvalue="Application.EnumMap" />
         <item itemvalue="Application.linkedHashMap" />
-        <item itemvalue="Application.identityHashMap" />
-        <item itemvalue="Application.weakMapApp" />
-        <item itemvalue="Application.hashMapApp" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +126,8 @@
       <option name="presentableId" value="Default" />
       <updated>1673401723413</updated>
       <workItem from="1673401724755" duration="1331000" />
-      <workItem from="1673409647534" duration="7416000" />
+      <workItem from="1673409647534" duration="7522000" />
+      <workItem from="1673446318310" duration="5720000" />
     </task>
     <servers />
   </component>

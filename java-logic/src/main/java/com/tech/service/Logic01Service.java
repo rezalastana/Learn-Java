@@ -10,55 +10,54 @@ public class Logic01Service {
     public Map<Character, Integer> soal01(String param){
         param.replace(" ","");
         char[] text = param.toUpperCase().toCharArray();
-        Arrays.sort(text);
 
         //Map
         Map<Character, Integer> result = new HashMap<>();
-        for (char item: text){
+        for (char item : text){ //char item dalam text -> text berisi char array dari kalimat input d
             Integer value = result.containsKey(item) ? result.get(item)+1 : 1;
+            //operator ternary (value = kondisi ? jika_benar : jika_salah
             result.put(item, value);
         }
         return result;
+
     }
 
-    public soal02(PalindromeRequest param) {
+    public Map<Integer, Character> soal02(PalindromeRequest param) {
 
-        param.setWord1("kodok");
+        //WORD 1
+        param.setWord1("coba");
+        Map<Character, Integer> map1 = new HashMap<>();
+        //WORD 2
+        param.setWord2("coba");
+        Map<Character, Integer> map2 = new HashMap<>();
 
-//        char[] text1 = param.getWord1().toCharArray();
-        Map<Character, Integer> result = new HashMap<>(param.getWord1().length());
+        boolean result = true;
 
         for (int i = 0; i < param.getWord1().length(); i++) {
-            char text = param.getWord1().charAt(i);
-            result.put(text, result.getOrDefault(text, 0) + 1);
-        }
-
-        boolean isPalindrome = true;
-
-        for (int count : result.values()) {
-            if (count % 2 == 1) {
-                isPalindrome = false;
-                break;
+            char c = param.getWord1().charAt(i);
+            if (!map1.containsKey(c)) {
+                map1.put(c, 1);
+            } else {
+                int count = map1.get(c);
+                map1.put(c, count + 1);
             }
         }
 
-        // Tampilkan hasilnya
-        String hasil = "Kata " + param.getWord1() + (isPalindrome ? " merupakan " : " bukan ") + "Palindrome";
-        System.out.println(hasil);
+        for (int i = 0; i < param.getWord2().length(); i++) {
+            char c = param.getWord2().charAt(i);
+            if (!map2.containsKey(c)) {
+                map2.put(c, 1);
+            } else {
+                int count = map2.get(c);
+                map2.put(c, count + 1);
+            }
+        }
 
-        return isPalindrome;
+        if (!map1.equals(map2)){
+            result = false;
+        }
+        return result;
 
-//        param.setWord2("kodok");
-//        char[] text2 = param.getWord2().toCharArray();
-////        Map<Character, Integer> result2 = new TreeMap<>();
-//
-//        if (text1 == text2){
-//
-//        }
-//        //word 1 = MAP
-//        //word 2 = MAP
-//        //if jumlah sama => PALINDROME
-//        return null;
     }
 
     public Map<Integer, String> soal03(int n){
