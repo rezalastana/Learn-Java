@@ -22,6 +22,7 @@ public class ProductEntity implements Serializable {
     @Column(name = "product_name",length = 100) //konfigurasi column pada DB
     private String name;
 
+    @NotEmpty(message = "Description is required")
     @Column(name = "product_desc",length = 500)
     private String description;
     private double price;

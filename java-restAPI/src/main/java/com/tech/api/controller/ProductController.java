@@ -1,10 +1,15 @@
 package com.tech.api.controller;
 
+import com.tech.api.dto.ResponseData;
 import com.tech.api.model.entity.ProductEntity;
 import com.tech.api.model.repo.ProductRepo;
 import com.tech.api.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -19,12 +24,26 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping //digunakan untuk post data
-    public ProductEntity create(@Valid @RequestBody ProductEntity product, Errors errors){ //object yang dikirim adalah product, melalui requestbody
+    public ResponseEntity<ResponseData<ProductEntity>> create(@Valid @RequestBody ProductEntity product, Errors errors){ //object yang dikirim adalah product, melalui requestbody
         //validation
-        if (errors.hasErrors()){ //apakah ada error? jika ada
 
+        ResponseData<ProductEntity> responseData = new ResponseData();
+        if (errors.hasErrors()){ //apakah ada error? jika ada cetak error
+            for (ObjectError objectError : errors.getAllErrors()){
+                //System.out.println(objectError.getDefaultMessage());
+                responseData.getMessage().add(objectError.getDefaultMessage());
+            }
+            //jika error
+            responseData.setStatus(false);
+            responseData.setPayload(null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
+//            throw new RuntimeException("Validation Error");
         }
-        return productService.create(product);
+        //lolos validasi / menyimpan data
+        responseData.setStatus(true);
+        responseData.setPayload(productService.save(product));
+        return ResponseEntity.ok(responseData);
+        //return productService.create(product);
     }
 
     @GetMapping //get data
@@ -40,8 +59,24 @@ public class ProductController {
 
     //update, dengan create
     @PutMapping //put digunakan untuk update, namun saat penggunaan tambhakan id
-    public ProductEntity update(@RequestBody ProductEntity product){
-        return productService.create(product);
+    public ResponseEntity<ResponseData<ProductEntity>> update(@Valid @RequestBody ProductEntity product, Errors errors){
+        ResponseData<ProductEntity> responseData = new ResponseData();
+        if (errors.hasErrors()){ //apakah ada error? jika ada cetak error
+            for (ObjectError objectError : errors.getAllErrors()){
+                //System.out.println(objectError.getDefaultMessage());
+                responseData.getMessage().add(objectError.getDefaultMessage());
+            }
+            //jika error
+            responseData.setStatus(false);
+            responseData.setPayload(null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
+//            throw new RuntimeException("Validation Error");
+        }
+        //lolos validasi / menyimpan data
+        responseData.setStatus(true);
+        responseData.setPayload(productService.save(product));
+        return ResponseEntity.ok(responseData);
+        //return productService.create(product);
     }
 
     //delete byId

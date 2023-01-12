@@ -18,3 +18,11 @@ misalkan ketika input data, namun name tidak terisikan maka akan di return null 
 1. tambahkan dependency validation
 2. validation di entity dengan @NotEmpty
 3. tambahkan @Valid pada controller create
+4. check apakah data valid dan tidak error? jika ada cetak error
+5. check dengan insomnia / postman
+6. jika diinputkan data tanpa name, dia akan menghasilkan error berupa "name is required" karena adanya @Valid yang dipanggil dari ProductEntity @NotEmpty
+7. membuat tampilan yang lebih mudah dipahami oleh client dengan DTO -> buat package dto
+8. class dto untuk response berhasil atau gagal datanya dikirimkan/diproses
+9. ubah return pada create (controller, sudah bukan product lagi)
+10. karena tipedata class ResponseData generic maka dia dapat me-return apa saja
+11. jalankan postman

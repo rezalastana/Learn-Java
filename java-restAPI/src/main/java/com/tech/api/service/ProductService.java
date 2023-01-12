@@ -19,10 +19,10 @@ public class ProductService {
     private ProductRepo productRepo;
 
     //create
-    public ProductEntity create(ProductEntity product){
+    public ProductEntity save(ProductEntity product){
         return productRepo.save(product);
     }
-
+    
     //find one byId
     public ProductEntity findId(Long id){
         //return Optional
