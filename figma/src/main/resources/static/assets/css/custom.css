@@ -1,0 +1,24 @@
+.container-footer {
+    padding-left: calc(8vw)!important;
+    padding-right: calc(8vw)!important;
+    padding-top: 91px;
+    padding-bottom: 91px;
+}
+.container-header {
+    padding-left: calc(8vw - 40px)!important;
+    padding-right: calc(8vw - 40px)!important;
+}
+.card{
+    border-radius: 1em;
+}
+.gambar-rounded {
+    border-radius: 16px;
+}
+.back-color {
+    background-color: #F5C761;
+}
+.back-color-opacity {
+    background-color: #F5C761;
+    opacity: 0.2;
+}
+

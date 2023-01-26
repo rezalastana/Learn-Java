@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main}">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Viewer</title>
+</head>
+
+<body>
+  <!-- Content Start -->
+  <div layout:fragment="content">
+
+    <div class="mt-5">
+      <h2 class="text-black-60 mb-4 text-center fs-1">Reviewer's Profile</h2>
+    </div>
+
+
+    <div class="container py-5 h-100">
+      <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center align-items-center h-100">
+        <div class="col col-md-9 col-lg-7 col-xl-9">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-4">
+              <div class="d-flex flex-column flex-md-row text-black">
+                <div class="flex-shrink-0 ">
+                  <img src="../../img/profile/profile.png" alt="Profile Image" class="img-fluid"
+                    style="width: 180px; border-radius: 50%;">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <p class="mb-1">Pengasuh Pondok Pesantren Roudhotut Tholibin, Gresik. <br> <br>
+
+                    Menempuh pendidikan di Jurusan Pendidikan Agama Islam, Fakultas Tarbiyah, Institut Agama Islam (IAI)
+                    Darullughah
+                    Wadda’wah, Bangil, Indonesia tahun 2003-2007 <br> <br>
+
+                    Melanjutkan pendidikan di Rebat Tareem, for Teaching The Traditional Science Of Islamic Religion and
+                    Arabic, Tareem,
+                    Hadramaut Yaman tahun 2007-2011 <br> <br>
+
+                    Menempuh Program Pascasarjana Magister Manajemen Pendidikan Islam, IAI Darullughah Wadda’wah,
+                    Bangil, Indonesia tahun
+                    2015-2018 <br> <br>
+                  </p>
+                  <h5 class="mb-2 pb-1 mt-2" style="color: #2b2a2a;">USTADZ ABDUL AZIZ MALIBARY</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content end -->
+  </div>
+</body>
+
+</html>
