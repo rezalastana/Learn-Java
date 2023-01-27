@@ -11,6 +11,9 @@
 .card{
     border-radius: 1em;
 }
+.border-left-custom {
+    border-left: 4px solid #F5C761;
+}
 .gambar-rounded {
     border-radius: 16px;
 }
