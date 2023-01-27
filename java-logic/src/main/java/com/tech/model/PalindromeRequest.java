@@ -12,5 +12,5 @@ import lombok.Setter;
 public class PalindromeRequest {
     private String word1;
     private String word2;
-    private String status;
+    private boolean status;
 }

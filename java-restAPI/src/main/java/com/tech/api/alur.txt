@@ -1,3 +1,4 @@
+=== PENDAHULUAN ===
 1. Buat struktur folder terlebih dahulu
 2. Buat database dengan nama java-api
 3. Connetion database -> application.properties //setting
@@ -13,7 +14,7 @@
 //handling id yang sudah terhapus
 9. Tambahkan handling pada Productservice
 
-===RESTAPI VALIDATION===
+=== RESTAPI VALIDATION ===
 misalkan ketika input data, namun name tidak terisikan maka akan di return null <-> ini divalidasi harus diisi
 1. tambahkan dependency validation
 2. validation di entity dengan @NotEmpty
@@ -26,3 +27,20 @@ misalkan ketika input data, namun name tidak terisikan maka akan di return null 
 9. ubah return pada create (controller, sudah bukan product lagi)
 10. karena tipedata class ResponseData generic maka dia dapat me-return apa saja
 11. jalankan postman
+
+=== RELASI ENTITY di JPA === 
+1. tambahkan class CategoryEntity.java pada entity dan implements Serializable
+2. buat filed/attrib/property pada Category dengan Long id, String name semua bersifat private
+3. buat setter getter, jika menggunakan Lombok tinggal gunakan annotation nya, jangan lupa anotasi @Entity , dan @Table dengan nama disesuakian
+4. berikan anotasi @Id agar Long id menjadi primary key dan @GeneratedValue agar auto increment
+5. pada nama beri anotasi @Column dan bersifat nullabel = false, nama juga unique
+6. relasikan dengan ProductEntity dengan ketentuan ** ONE TO MANY = CATEGORY dan MANY TO ONE = PRODUCT** || karena bisa saja 1 kategori banyak product, dan banyak banyak product memiliki 1 kategori
+7. relasi digunakan pada sisi product
+8. pada ProductEntity tambahkan private Category category dengan relas @ManyToOne . tambahkan setter-getter
+=> class lainnya
+9. membuat SupplierEntity.java dengan property id, String name, String address, String email
+10. jangan lupa anotasi, @Entity @Table @Id @GeneratedValue(strategy) @Column nullabel = false  dan email harus unique = true
+11. Selanjutnya setter getter
+<=> 
+12. Set<> digunakan untuk ManyToMany antara class untuk menunjukkan ada Product apa saja dalam Supplier, dan Supplier apa saja dalam Product. dan tambahkan anotasi @ManyToMany
+

@@ -8,18 +8,18 @@ import java.util.*;
 @Service
 public class Logic01Service {
     public Map<Character, Integer> soal01(String param){
-        param.replace(" ","");
+        param.replace(" ","");//menghilangkan spasi pada text input
         char[] text = param.toUpperCase().toCharArray();
+        Arrays.sort(text);
 
         //Map
         Map<Character, Integer> result = new HashMap<>();
-        for (char item : text){ //char item dalam text -> text berisi char array dari kalimat input d
+        for (char item : text){ //for-each item untuk seluruh data text
             Integer value = result.containsKey(item) ? result.get(item)+1 : 1;
             //operator ternary (value = kondisi ? jika_benar : jika_salah
             result.put(item, value);
         }
         return result;
-
     }
 
     public Map<Integer, Character> soal02(PalindromeRequest param) {
@@ -31,7 +31,6 @@ public class Logic01Service {
         param.setWord2("coba");
         Map<Character, Integer> map2 = new HashMap<>();
 
-        boolean result = true;
 
         for (int i = 0; i < param.getWord1().length(); i++) {
             char c = param.getWord1().charAt(i);
@@ -54,10 +53,10 @@ public class Logic01Service {
         }
 
         if (!map1.equals(map2)){
-            result = false;
+            param.setStatus(false);
         }
-        return result;
 
+        return null;
     }
 
     public Map<Integer, String> soal03(int n){

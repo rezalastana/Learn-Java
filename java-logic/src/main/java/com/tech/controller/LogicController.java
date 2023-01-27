@@ -17,13 +17,13 @@ import java.util.Map;
 public class LogicController {
     private final Logic01Service logic01Service;
 
-    //constructor untuk menginstace class Service
+    //constructor untuk meng-instace class Service
     @Autowired
     public LogicController(Logic01Service logic01Service){
         this.logic01Service = logic01Service;
     }
 
-    @GetMapping("/soal01/{param}")
+    @GetMapping("/soal1/{param}")
     public ResponseEntity<Object> soal01(@PathVariable("param") String param){
         Map<Character, Integer> result = logic01Service.soal01(param);
         return ResponseEntity.ok().body(result);

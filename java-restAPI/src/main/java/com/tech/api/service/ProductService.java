@@ -22,7 +22,7 @@ public class ProductService {
     public ProductEntity save(ProductEntity product){
         return productRepo.save(product);
     }
-    
+
     //find one byId
     public ProductEntity findId(Long id){
         //return Optional
